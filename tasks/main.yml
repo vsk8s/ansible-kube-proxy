@@ -1,11 +1,13 @@
 ---
 
 - name: Install package
+  become: True
   package:
     name: kubernetes-hyperkube-kube-proxy
     state: present
 
 - name: Configure package
+  become: True
   template:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
