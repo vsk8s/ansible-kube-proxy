@@ -1,0 +1,7 @@
+---
+
+# The IP under which the masters are reachable
+kube_proxy_master: 1.2.3.4
+
+# A valid kubeconfig
+kube_proxy_config: /etc/kubernetes/kube-proxy/kubeconfig.yml

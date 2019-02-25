@@ -1,0 +1,11 @@
+---
+- name: Reload systemd
+  become: True
+  command: systemctl daemon-reload
+
+- name: Restart kube-proxy
+  become: True
+  service:
+    name: kube-proxy
+    state: restarted
+    enabled: True
