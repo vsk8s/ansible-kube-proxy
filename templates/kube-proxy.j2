@@ -1,6 +1,3 @@
 DAEMON_ARGS="                                                               \
-$DAEMON_ARGS                                                                \
---master=https://{{ kube_proxy_master }}:443                                \
---v=2                                                                       \
---kubeconfig={{ kube_proxy_config }}                                        \
+--config={{ kube_proxy_config }}                                            \
 "
