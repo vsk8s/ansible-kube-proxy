@@ -2,7 +2,6 @@
 Description=Kubernetes Proxy
 
 [Service]
-EnvironmentFile=/etc/default/kube-proxy
 ExecStart=/usr/bin/hyperkube proxy --config={{ kube_proxy_config }}
 Restart=on-failure
 Type=simple
