@@ -2,8 +2,10 @@
 
 - name: Install package
   become: True
-  package:
-    name: kubernetes-hyperkube-kube-proxy
+  apt:
+    name:
+      - kubernetes-hyperkube-kube-proxy
+      - socat
     state: present
 
 - name: Configure package
