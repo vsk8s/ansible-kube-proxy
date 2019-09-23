@@ -2,7 +2,7 @@
 Description=Kubernetes Proxy
 
 [Service]
-ExecStart=/usr/bin/hyperkube proxy --config={{ kube_proxy_config }}
+ExecStart=/usr/bin/hyperkube kube-proxy --config={{ kube_proxy_config }}
 Restart=on-failure
 Type=simple
 ExecStop=/bin/kill $MAINPID
