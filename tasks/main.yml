@@ -24,3 +24,6 @@
   notify:
     - Reload systemd
     - Restart kube-proxy
+
+- name: Flush handlers
+  meta: flush_handlers
