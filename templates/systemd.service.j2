@@ -2,6 +2,10 @@
 Description=Kubernetes Proxy
 
 [Service]
+# For some reason, this chain will normally be created by _kubelet_,
+# leading to a race condition at startup and a failing kube-proxy on the
+# masters as they don't have the kubelet.
+ExecStartPre=-/usr/sbin/iptables -t nat -N KUBE-MARK-DROP
 ExecStart=/usr/bin/hyperkube kube-proxy --config={{ kube_proxy_config }}
 Restart=on-failure
 Type=simple
