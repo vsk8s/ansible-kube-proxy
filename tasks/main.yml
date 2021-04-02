@@ -1,5 +1,11 @@
 ---
 
+- name: Install kubernetes-node
+  become: True
+  package:
+    name: kubernetes-node
+    state: present
+
 - name: Configure package
   become: True
   template:
