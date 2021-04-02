@@ -1,11 +1,9 @@
 ---
 
-- name: Install package
+- name: Install kubernetes-node
   become: True
-  apt:
-    name:
-      - kubernetes-hyperkube-kube-proxy
-      - socat
+  package:
+    name: kubernetes-node
     state: present
 
 - name: Configure package
