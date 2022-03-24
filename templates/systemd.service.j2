@@ -6,7 +6,7 @@ Description=Kubernetes Proxy
 # leading to a race condition at startup and a failing kube-proxy on the
 # masters as they don't have the kubelet.
 ExecStartPre=-/usr/sbin/iptables -t nat -N KUBE-MARK-DROP
-ExecStart=/usr/bin/kube-proxy --config={{ kube_proxy_config }}
+ExecStart=/usr/bin/kube-proxy --config={{ kube_proxy_config }} --hostname-override {{ ansible_fqdn }}
 Restart=on-failure
 Type=simple
 ExecStop=/bin/kill $MAINPID
