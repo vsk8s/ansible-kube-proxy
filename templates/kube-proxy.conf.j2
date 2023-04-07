@@ -7,7 +7,7 @@ clientConnection:
   kubeconfig: "{{ kube_proxy_kubeconfig }}"
   qps: 5
 configSyncPeriod: 15m0s
-clusterCIDR: "{{ kubernetes_cluster_cidr }}"
+clusterCIDR: "{{ kubernetes_cluster_cidr }}{% if kubernetes_ipv6_enabled %},{{ kubernetes_cluster_cidr_v6 }}{% endif %}"
 conntrack:
   max: 0
   maxPerCore: 32768
